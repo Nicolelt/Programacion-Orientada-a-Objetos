@@ -12,6 +12,7 @@ public class Abogado extends persona{
         this.notaria = notaria;
         this.juiciosGanados = juiciosGanados;
         this.juiciosAsistidos = juiciosAsistidos;
+        calcularPorcentajeExito();
     }
     @Override
     public String toString() {
@@ -24,6 +25,7 @@ public class Abogado extends persona{
                     notaria: %s
                     juicios ganados: %d
                     juicios asistidos: %d
+                    porcentaje de exito: %.2f
                 }
                 """;
         return String.format(
@@ -34,9 +36,15 @@ public class Abogado extends persona{
             casado,
             notaria,
             juiciosGanados, 
-            juiciosAsistidos
+            juiciosAsistidos,
+            porcentajeExito
         );
     }
 
     
+
+    @Override
+    public void calcularPorcentajeExito(){
+        porcentajeExito = ((double) juiciosGanados / juiciosAsistidos) * 100.0;
+    }
 }

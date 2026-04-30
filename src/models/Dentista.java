@@ -10,6 +10,7 @@ public class Dentista extends persona {
         this.centroDental = centroDental;
         this.pacientesFelices = pacientesFelices;
         this.pacientesTotales = pacientesTotales;
+        calcularPorcentajeExito();
     }
     @Override
     public String toString() {
@@ -22,6 +23,7 @@ public class Dentista extends persona {
                     centro dental: %s
                     pacientes felices: %d
                     pacientes totales: %d
+                    porcentaje de exito: %.2f
                 }
                 """;
         return String.format(
@@ -32,8 +34,13 @@ public class Dentista extends persona {
             casado,
             centroDental,
             pacientesFelices,
-            pacientesTotales
+            pacientesTotales,
+            porcentajeExito
         );
+    }
+    @Override
+    public void calcularPorcentajeExito(){
+        porcentajeExito = ((double) pacientesFelices / pacientesTotales) * 100.0;
     }
 
     

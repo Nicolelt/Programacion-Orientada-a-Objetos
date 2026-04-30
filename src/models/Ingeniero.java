@@ -10,6 +10,7 @@ public class Ingeniero extends persona {
         this.constructora = constructora;
         this.edificiosConstruidos = edificiosConstruidos;
         this.edificiosPlanificados = edificiosPlanificados;
+        calcularPorcentajeExito();
     }
     @Override
     public String toString() {
@@ -22,6 +23,7 @@ public class Ingeniero extends persona {
                     constructora: %s
                     edificios construidos: %d
                     edificios planificados: %d
+                    porcentaje de exito: %.2f
                 }
                 """;
         return String.format(
@@ -32,8 +34,13 @@ public class Ingeniero extends persona {
             casado,
             constructora,
             edificiosConstruidos,
-            edificiosPlanificados
+            edificiosPlanificados,
+            porcentajeExito
         );
+    }
+        @Override
+    public void calcularPorcentajeExito(){
+        porcentajeExito = ((double) edificiosConstruidos / edificiosPlanificados) * 100.0;
     }
 
     
